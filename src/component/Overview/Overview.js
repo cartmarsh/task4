@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './overview.css';
+// I used react-hook-form => it performs less rerenders
 import { useForm } from "react-hook-form";
 import OverviewStat from './OverviewStat/OverviewStat';
 
 const Overview = () => {
 
-    const [startDate, setStartDate] = useState("2017-06-01");
-    const [endDate, setEndDate] = useState("2017-06-02");
+
+    const [startDate] = useState("2017-06-01");
+    const [endDate] = useState("2017-06-02");
 
     const [sector1, setSector1] = useState({ sectorName: "sector1", values: [] });
     const [sector2, setSector2] = useState({ sectorName: "sector2", values: [] });
@@ -33,6 +35,7 @@ const Overview = () => {
         // for every sector + overview, we only get one rerender
         Promise.all(promises).then(
             (values) => {
+                let overviewArr = [];
                 for (let value of values) {
                     
                     let tempArr = [];
@@ -42,6 +45,7 @@ const Overview = () => {
                             for(const [key, value1] of Object.entries(value.values)){
                                 tempArr = [...tempArr, ...value1];
                             }
+                            overviewArr = [...overviewArr, ...tempArr];
                             setSector1(prevState => ({...prevState, values: tempArr }));
                             break;
                         case "sector2":
@@ -49,6 +53,7 @@ const Overview = () => {
                             for(const [key, value1] of Object.entries(value.values)){
                                 tempArr = [...tempArr, ...value1];
                             }
+                            overviewArr = [...overviewArr, ...tempArr];
                             setSector2(prevState => ({...prevState, values: tempArr }));
                             break;
                         case "sector3":
@@ -56,21 +61,16 @@ const Overview = () => {
                             for(const [key, value1] of Object.entries(value.values)){
                                 tempArr = [...tempArr, ...value1];
                             }
+                            overviewArr = [...overviewArr, ...tempArr];
                             setSector3(prevState => ({...prevState, values: tempArr }));
                             break;
+                        default:
+                            console.log("sectorName unknown");
                     }
-                    
-                    // after all sectors have been updated we can aggregate data for overview
-                    tempArr = [];
-                    [sector1.values, sector2.values, sector3.values].map((value) => {
-                       
-                        tempArr = [...tempArr, ...value];
-                        
-                    });
-                    
-                    setOverview(prevState => ({...prevState, values: tempArr}));
-                    
                 }
+
+                // after all sectors have been updated we can add the aggregated Array of values for overview
+                setOverview(prevState => ({...prevState, values: overviewArr}));
             }
         );
     };
@@ -93,7 +93,7 @@ const Overview = () => {
         </form>
         <div className="stats">
             {[sector1, sector2, sector3, overview].map(value => {
-                return <OverviewStat header={value.sectorName} data={value.values ? value.values : {}} />
+                return <OverviewStat key={value.sectorName} header={value.sectorName} data={value.values ? value.values : {}} />
             })}
         </div>
     </div>)

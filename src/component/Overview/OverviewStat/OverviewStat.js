@@ -5,7 +5,7 @@ import './overviewstat.css';
 
 const OverviewStat = ({ header, data }) => {
 
-    const [dataArray, setDataArray] = useState([]);
+ 
     const [mean, setMean] = useState(0);
     const [median, setMedian] = useState(0);
     const [min, setMin] = useState(0);
@@ -13,25 +13,24 @@ const OverviewStat = ({ header, data }) => {
 
 
     useEffect(() => {
-        if (data != null) {
+        if (data != null && data !== {}) {
            
             // bring all numbers in an array
-            let tempArr = [];
-            Object.entries(data).map(value => {
-                tempArr = [...tempArr, value[1].value ];
-                
-            });
-            setDataArray(tempArr);
-
+            let tempArr = Object.entries(data).reduce((acc, value) => {
+                return [...acc, value[1].value];
+            }, []);
             
+            
+
+
             // calculate all values
-            if (dataArray.length > 0) {
-                setMean(truncate(dataArray.reduce((accum, value) => accum + value) / dataArray.length));
+            if (tempArr.length > 0) {
+                setMean(truncate(tempArr.reduce((accum, value) => accum + value) / tempArr.length));
             }
 
-            setMedian(truncate(medianCalc(dataArray)));
-            setMin(dataArray.sort()[0]);
-            setMax(dataArray.sort()[dataArray.length - 1]);
+            setMedian(truncate(medianCalc(tempArr)));
+            setMin(Math.min(...tempArr));
+            setMax(Math.max(...tempArr));
         }
     }, [data]);
 
@@ -74,8 +73,8 @@ const OverviewStat = ({ header, data }) => {
                 <div className="secCol">
                     <p>{mean ? mean : ""}</p>
                     <p>{median ? median : ""}</p>
-                    <p>{min}</p>
-                    <p>{max}</p>
+                    <p>{min !== Infinity ? min : ""}</p>
+                    <p>{max !== -Infinity ? max : ""}</p>
                 </div>
             </div>
 

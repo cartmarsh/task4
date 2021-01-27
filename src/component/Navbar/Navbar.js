@@ -1,12 +1,12 @@
 
 import React, { useState } from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './navbar.css';
 
 
 const Navbar = () => {
 
-    const [isOpen, setOpen] = useState(false);
+
     const [sectorsOpen, setSectorsOpen] = useState(false);
 
 
@@ -19,18 +19,15 @@ const Navbar = () => {
                     exact
                 >
                     <div className="nav-link-text">
-                    
                     <p>Overview</p>
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/news.png"/>
+                    <img id="opened_folder" src="https://img.icons8.com/ios-glyphs/30/000000/news.png" alt="" />
                     </div>
-                    
-                    
                 </NavLink>
                 <button className="nav-link" onClick={() => setSectorsOpen(!sectorsOpen)}>
                 <div className="nav-link-text">
                 
                     <p>Sectors</p>
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/opened-folder.png"/>
+                    <img id="opened_folder" src="https://img.icons8.com/ios-glyphs/30/000000/opened-folder.png" alt="" />
                     </div>
                 
                     </button>
