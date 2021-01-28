@@ -6,6 +6,7 @@ Zeit:
 - 1h componentenLogik
 - 1h Datenverarbeitung + Chart
 - 30 CSS sytling polishing
+- Gesamt: 2,5h
 
 
 
