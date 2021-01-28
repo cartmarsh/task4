@@ -7,6 +7,13 @@
 
 }
 
+#ov_header {
+    border-radius: 20px;
+    background: linear-gradient(to right bottom, rgba(245, 191, 125, 0.8), rgba(245, 191, 125,0.2));
+    padding: 6% 2%;
+    box-shadow: 5px 5px 38px 5px #919191;
+}
+
 .form_date {
     display: flex;
     flex-direction: column;

@@ -8,15 +8,23 @@ import Overview from './component/Overview/Overview';
 
 import Sector from './component/Sector/Sector';
 
+import HeaderContent from './component/Header/HeaderContent/HeaderContent';
+
 
 import './App.css';
 
 
 
+
+
 function App() {
+
+  // let match = useRouteMatch();
+  // console.log("match: " + JSON.stringify(match));
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header render={<HeaderContent />}/>
       <div className="nav_content">
         <Navbar />
         <div className="content-container">
@@ -24,15 +32,8 @@ function App() {
             <Route exact path="/overview">
               <Overview />
             </Route>
-            <Route path="/sectors/subsector1">
-              <Sector name="1" />
-            </Route>
-            <Route path="/sectors/subsector2">
-              <Sector name="2" />
-            </Route>
-            <Route path="/sectors/subsector3">
-              <Sector name="3" />
-            </Route>
+            <Route path="/sectors/:subsector" component={Sector} />
+             
 
           </Switch>
         </div>

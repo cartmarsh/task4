@@ -4,6 +4,12 @@
     margin-top: 5%;
     width: 20%;
     height: 100vh;
+
+
+}
+
+.active {
+    background: orange;
 }
 
 .navbar-start {
@@ -22,6 +28,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: baseline;
+}
+
+#link_B{
+    border-radius: 5px;
+    padding: 1% 5%;
 }
 
 #opened_folder {

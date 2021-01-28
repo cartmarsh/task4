@@ -1,7 +1,39 @@
 .sector {
     text-align: center;
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2rem;
     opacity: 0.85;
     color: #426696;
+}
+
+.stats  {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.stats > .stat_container {
+    width: 20%;
+    height: auto;
+}
+
+.form{
+    font-size: 2rem;
+    
+}
+
+#number_input {
+    outline: none;
+    padding: 2%;
+    border-radius: 5px;
+    border: 0;
+    height: 100%;
+    
+}
+
+#sec_header {
+    border-radius: 20px;
+    background: linear-gradient(to right bottom, rgba(245, 191, 125, 0.8), rgba(245, 191, 125,0.2));
+    padding: 6% 2%;
+    box-shadow: 5px 5px 38px 5px #919191;
 }
