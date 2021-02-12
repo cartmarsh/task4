@@ -1,0 +1,25 @@
+.content {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.content > button {
+    background: linear-gradient(to right bottom, rgba(255,255,255, 0.75), rgba(255,255,255,0.3));
+	color: #426696;
+	border: none;
+    padding: 1px 15% 1px;
+	font: inherit;
+	cursor: pointer;
+    outline: inherit;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 5%;
+    border-radius: 20px;
+    transition: background-color 0.8s ease;
+}
+
+.content > button:hover {
+    background: linear-gradient(to right bottom, rgba(219, 255, 220, 0.3), rgba(219, 255, 220,0.7));
+}

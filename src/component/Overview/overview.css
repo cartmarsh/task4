@@ -1,0 +1,71 @@
+.overview {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2rem;
+    opacity: 0.85;
+    color: #426696;
+
+}
+
+#ov_header {
+    border-radius: 20px;
+    background: linear-gradient(to right bottom, rgba(245, 191, 125, 0.8), rgba(245, 191, 125,0.2));
+    padding: 6% 2%;
+    box-shadow: 5px 5px 38px 5px #919191;
+}
+
+.form_date {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.form_date > input {
+    width: 100%;
+}
+
+#submit_button_overview {
+    background: linear-gradient(to right bottom, rgba(255,255,255, 0.75), rgba(255,255,255,0.3));
+	color: inherit;
+	border: none;
+	padding: 2%;
+	font: inherit;
+	cursor: pointer;
+    outline: inherit;
+    text-align: left;
+    font-size: 1.8rem;
+    font-weight: 100;
+    margin: 5%;
+    border-radius: 20px;
+    transition: background-color 0.8s ease;
+
+}
+
+#submit_button_overview:hover {
+    background: linear-gradient(to right bottom, rgba(219, 255, 220, 0.3), rgba(219, 255, 220,0.7));
+}
+
+#button_hover {
+    margin-bottom: 0;
+}
+
+
+#button_hover:hover {
+    transform: scale(1.02) perspective(1px);
+
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
+}
